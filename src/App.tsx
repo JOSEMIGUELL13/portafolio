@@ -1,24 +1,56 @@
 import './App.css';
-import { IconCloudDemo } from './IconCloudDemo'; 
+import { IconCloudDemo } from './IconCloudDemo';
+import TypingAnimation from "@/components/ui/typing-animation"; // Asegúrate de que este componente existe o implementarlo
+import { useTheme } from "next-themes";
+import { MagicCard } from "@/components/ui/magic-card";
 
+// Componente que muestra las tarjetas mágicas
+export function MagicCardDemo() {
+  const { theme } = useTheme();
+  return (
+    <div className="flex h-[500px] w-full flex-col gap-4 lg:h-[250px] lg:flex-row">
+      <MagicCard
+        className="cursor-pointer flex-col items-center justify-center whitespace-normal text-1xl shadow-2xl p-4 m-4 rounded-lg overflow-hidden"
+        gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+      >
+        <span className="text-xl font-bold">SOBRE MI</span>
+      </MagicCard>
+      <MagicCard
+        className="cursor-pointer flex-col items-center justify-center whitespace-normal text-xs shadow-2xl p-4 m-4 rounded-lg overflow-hidden"
+        gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+      >
+        <span className="text-base">
+          Soy un programador principiante y freelance, apasionado por aprender y
+          desarrollar soluciones innovadoras. Me especializo en lenguajes modernos y
+          herramientas avanzadas para el desarrollo de software y aplicaciones.
+        </span>
+      </MagicCard>
+    </div>
+  );
+}
+
+
+
+// Componente para la animación de texto
+export function TypingAnimationDemo() {
+  return <TypingAnimation>Gudiño Galindo Jose Miguel Angel</TypingAnimation>;
+}
 
 function App() {
   return (
     <div>
       <header>
         <img
-          src="src\foto.jpg"
+          src="src/foto.jpg"
           alt="Foto de perfil"
         />
-        <h1>Gudiño Galindo José Miguel Ángel</h1>
-        <p>Estudiante de Ingeniería en Sistemas Computacionales, 
-          apasionado por la programación y el desarrollo tecnológico.</p>
+        <h1>
+          <TypingAnimationDemo />
+        </h1>
       </header>
       <section>
-        <h2>Sobre mí</h2>
-        <p>Soy un programador principiante y freelance, apasionado por aprender 
-          y desarrollar soluciones innovadoras. Me especializo en lenguajes modernos 
-          y herramientas avanzadas para el desarrollo de software y aplicaciones.</p>
+        {/* Aquí se agregan las cartas mágicas sobre la sección "Sobre mí" */}
+        <MagicCardDemo />
       </section>
       <section>
         <h2>Habilidades</h2>
@@ -32,14 +64,15 @@ function App() {
       </section>
       <section>
         <h2>Lenguajes y herramientas</h2>
-        <IconCloudDemo /> {/* Nube interactiva de herramientas */}
+        <IconCloudDemo />
       </section>
       <section>
         <h2>Proyectos Desarrollados</h2>
-        <li>Sistema de ingreso y administracion de gimnasio.</li>
-        <li>ERP Consultora agricola</li>
-        <li>Carrito remoto por movimiento de manos</li>
-
+        <ul>
+          <li>Sistema de ingreso y administración de gimnasio.</li>
+          <li>ERP Consultora agrícola</li>
+          <li>Carrito remoto por movimiento de manos</li>
+        </ul>
       </section>
       <section>
         <h2>Contacto</h2>
