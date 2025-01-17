@@ -16,6 +16,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.cardP{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: linear-gradient(145deg, #003366, #001f3f);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
 body {
   margin: 0;
   display: flex;
@@ -49,6 +61,14 @@ header h1 {
   line-height: 1.2;
   font-weight: 700;
   color: #66b2ff;
+  margin: 0.5rem 0;
+}
+
+.titleH {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #12385d;
   margin: 0.5rem 0;
 }
 
