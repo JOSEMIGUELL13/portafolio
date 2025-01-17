@@ -1,93 +1,77 @@
+
 import './App.css';
 import { IconCloudDemo } from './IconCloudDemo';
-import TypingAnimation from "@/components/ui/typing-animation"; // Asegúrate de que este componente existe o implementarlo
-import { useTheme } from "next-themes";
-import { MagicCard } from "@/components/ui/magic-card";
-
-// Componente que muestra las tarjetas mágicas
-export function MagicCardDemo() {
-  const { theme } = useTheme();
-  return (
-    <div className="flex h-[500px] w-full flex-col gap-4 lg:h-[250px] lg:flex-row">
-      <MagicCard
-        className="cursor-pointer flex-col items-center justify-center whitespace-normal text-1xl shadow-2xl p-4 m-4 rounded-lg overflow-hidden"
-        gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-      >
-        <span className="text-xl font-bold">SOBRE MI</span>
-      </MagicCard>
-      <MagicCard
-        className="cursor-pointer flex-col items-center justify-center whitespace-normal text-xs shadow-2xl p-4 m-4 rounded-lg overflow-hidden"
-        gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-      >
-        <span className="text-base">
-          Soy un programador principiante y freelance, apasionado por aprender y
-          desarrollar soluciones innovadoras. Me especializo en lenguajes modernos y
-          herramientas avanzadas para el desarrollo de software y aplicaciones.
-        </span>
-      </MagicCard>
-    </div>
-  );
-}
-
-
-
-// Componente para la animación de texto
-export function TypingAnimationDemo() {
-  return <TypingAnimation>Gudiño Galindo Jose Miguel Angel</TypingAnimation>;
-}
+import { AnimatedSkillsDemo } from '@/components/AnimatedSkillsDemo';
+import { MagicCardDemo } from '@/components/MagicCardDemo';
+import { MorphingTextDemo } from '@/components/MorphingTextDemo';
+import { TypingAnimationDemo } from '@/components/TypingAnimationDemo';
 
 function App() {
   return (
-    <div>
-      <header>
-        <img
-          src="src/foto.jpg"
-          alt="Foto de perfil"
-        />
-        <h1>
-          <TypingAnimationDemo />
-        </h1>
-      </header>
-      <section>
-        {/* Aquí se agregan las cartas mágicas sobre la sección "Sobre mí" */}
-        <MagicCardDemo />
-      </section>
-      <section>
-        <h2>Habilidades</h2>
-        <ul>
-          <li>Trabajo en equipo</li>
-          <li>Responsabilidad</li>
-          <li>Amabilidad</li>
-          <li>Resolución de problemas</li>
-          <li>Gestión de proyectos</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Lenguajes y herramientas</h2>
-        <IconCloudDemo />
-      </section>
-      <section>
-        <h2>Proyectos Desarrollados</h2>
-        <ul>
-          <li>Sistema de ingreso y administración de gimnasio.</li>
-          <li>ERP Consultora agrícola</li>
-          <li>Carrito remoto por movimiento de manos</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Contacto</h2>
-        <p>Teléfono: 3312521635</p>
-        <p>Email: pablojuangg27@gmail.com</p>
-        <p>
-          LinkedIn:{' '}
-          <a href="https://www.linkedin.com/in/jose-miguel-angel-gudi%C3%B1o-galindo-1b25b3329/">
-            Gudiño Galindo Miguel
-          </a>
-        </p>
-      </section>
-      <footer>
-        <p>&copy; 2025 Gudiño Galindo José Miguel Ángel. Todos los derechos reservados.</p>
-      </footer>
+    <div className="min-h-screen flex flex-col">
+      {/* Sección de MorphingTextDemo */}
+      <div className="w-full py-16 mb-48">
+        <MorphingTextDemo />
+      </div>
+
+      {/* Contenido principal con más espacio arriba */}
+      <div className="flex-1 p-6 mt-48">
+        <header className="mb-8">
+          <img src="src/foto.jpg" alt="Foto de perfil" />
+          <h1>
+            <TypingAnimationDemo />
+          </h1>
+        </header>
+
+        <section className="mb-8">
+          <MagicCardDemo />
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4 text-center">Habilidades</h2>
+          <div className="relative max-w-[1200px] w-full mx-auto h-[400px] rounded-lg bg-gradient-to-b from-white via-gray-100 to-gray-200 shadow-xl">
+            <div className="h-full overflow-y-auto scrollbar-hide">
+              <AnimatedSkillsDemo className="p-4" />
+            </div>
+          </div>
+        </section>
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold text-center mb-4">Proyectos Desarrollados</h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+            <li className="bg-gray-100 p-6 rounded-2xl shadow-lg text-blue-600 hover:bg-blue-600 hover:text-white transition duration-300 ease-in-out text-lg text-center">
+              Sistema de ingreso y administración de gimnasio
+            </li>
+            <li className="bg-gray-100 p-6 rounded-2xl shadow-lg text-blue-600 hover:bg-blue-600 hover:text-white transition duration-300 ease-in-out text-lg text-center">
+              ERP Consultora agrícola
+            </li>
+            <li className="bg-gray-100 p-6 rounded-2xl shadow-lg text-blue-600 hover:bg-blue-600 hover:text-white transition duration-300 ease-in-out text-lg text-center">
+              Carrito remoto por movimiento de manos
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold text-center mb-4">Contacto</h2>
+          <div className="space-y-4 px-4 text-lg">
+            <p>Teléfono: <span className="font-bold">3312521635</span></p>
+            <p>Email: <span className="font-bold">pablojuangg27@gmail.com</span></p>
+            <p>
+              LinkedIn:   
+              <a 
+                href="https://www.linkedin.com/in/jose-miguel-angel-gudi%C3%B1o-galindo-1b25b3329/" 
+                className="text-blue-600 hover:underline font-bold"
+              >
+
+                Gudiño Galindo Miguel
+              </a>
+            </p>
+          </div>
+        </section>
+        {/* Otros componentes como IconCloudDemo */}
+        <footer className="mt-auto py-4">
+          <p>&copy; 2025 Gudiño Galindo José Miguel Ángel. Todos los derechos reservados.</p>
+        </footer>
+      </div>
     </div>
   );
 }
