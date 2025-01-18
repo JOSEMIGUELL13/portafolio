@@ -18,21 +18,22 @@ function App() {
       title: "Sistema de gestión de gimnasio",
       description:
         "Un sistema completo para la gestión de membresías, acceso y control administrativo y contable de gimnasio.",
-      img: "src/img/gim.jpg",
+      img: "/img/gim.jpg",
+
     },
     {
       id: "erp",
       title: "ERP Agrícola",
       description:
         "Software diseñado para la gestión y planificación de recursos en entornos agrícolas, optimizando la producción y logística.",
-      img: "src/img/erp2.png",
+      img: "/img/erp2.png",
     },
     {
       id: "car",
       title: "Carrito controlado por gestos",
       description:
         "Un innovador proyecto donde un carrito se controla a través de gestos, utilizando sensores avanzados. Principalemnte combinado con OpenCv libreria de python.",
-      img: "src/img/car.png",
+      img: "/img/car.png",
     },
   ];
 
@@ -45,7 +46,7 @@ function App() {
       <div className="relative z-10">
         <div className="flex-1 p-6 mt-16">
           <header className="mb-8">
-            <img src="src/img/foto.JPEG" alt="Foto de perfil" />
+            <img src="/img/foto.JPEG" alt="Foto de perfil" />
             <h1>
               <TypingAnimationDemo />
               <InteractiveHoverButtonDemo />

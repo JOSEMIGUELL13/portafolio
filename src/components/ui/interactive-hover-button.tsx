@@ -11,7 +11,7 @@ export const InteractiveHoverButton = React.forwardRef<
 >(({ children, className, ...props }, ref) => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "./public/Curriculum_Profesional.png"; // Asegúrate de que el archivo esté en la carpeta `public`
+    link.href = "/Curriculum_Profesional.png"; // Asegúrate de que el archivo esté en la carpeta `public`
     link.download = "CV.png";
     document.body.appendChild(link);
     link.click();
